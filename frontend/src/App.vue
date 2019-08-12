@@ -15,7 +15,3 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-body
-  font-family 'Open Sans', sans-serif
-</style>
