@@ -1,3 +1,4 @@
+/* eslint-env browser */
 import axios from 'axios'
 import config from './config'
 
