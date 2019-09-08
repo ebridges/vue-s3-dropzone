@@ -16,11 +16,19 @@ export default {
 
     return axios.post(endpoint, bodyFormData, {headers: headers})
       .then((res) => {
-        return Promise.resolve(res.headers['Location'] || '/')
+        let location = this.getPropValue(res.headers, 'Location')
+        return Promise.resolve(location || '/')
       })
       .catch((err) => {
         console.error(err)
         return Promise.reject('/')
       })
+  },
+
+  // case insensitive lookup
+  getPropValue (obj, prop) {
+    var theKeys = Object.getOwnPropertyNames(obj).toString()
+    var match = new RegExp(prop, 'i').exec(theKeys)
+    return match && (match.length > 0 ? obj[match[0]] : '')
   }
 }
