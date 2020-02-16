@@ -27,6 +27,8 @@ export default {
       // Since we're going to do a `PUT` upload to S3 directly
       method: 'put',
 
+      acceptedFiles: 'image/jpg,image/jpeg',
+
       // Hijack the xhr.send since Dropzone always upload file by using formData
       // ref: https://github.com/danialfarid/ng-file-upload/issues/743
       sending (file, xhr) {
